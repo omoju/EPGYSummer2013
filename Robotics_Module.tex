@@ -1,0 +1,226 @@
+
+
+% Document settings
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{color}
+\begin{document}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\tiny,     % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  language=C,                 % the language of the code
+  keywordstyle=\bfseries\color{green!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  tabsize=2,                       % sets default tabsize to 2 spaces
+ }
+
+
+
+\title[Crisis] % (optional, only for long titles)
+{Robotics Module}
+\subtitle{From Snap to RobotC}
+\includegraphics[scale=0.5]{EPGY.png}
+\author[Author] % (optional, for multiple authors)
+{Omoju Miller}
+\institute[Stanford EPGY] % (optional)
+
+\date[KPT 2013] % (optional)
+{EPGY, Summer 2013}
+\subject{Informatik}
+
+
+\frame{\titlepage}
+
+  \begin{frame}
+    \frametitle{Programming Tangible Devices}
+    %
+    \begin{itemize}
+\item In this module, we will be learning about programming Lego MindStorms NXT robots with the robotC programming language
+\item So How do we go from Snap to RobotC?
+\end{itemize}
+  \end{frame}
+  
+\begin{frame}
+\frametitle{C Programming}
+	\begin{itemize}
+		\item So there are some major differences between Snap and RobotC
+		\item For one Snap is a blocks Environment, while RobotC is a text based programming language.  
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{The simplest C program }
+The simplest C program is shown below. Every program must have at least this much in it. 
+\lstinputlisting[language=C, firstline=1, lastline=4]{main.c}
+\end{frame}
+
+\begin{frame}
+\frametitle{C Programs Contd}
+Here is a much more interesting piece of code: 
+\lstinputlisting[language=C, firstline=1, lastline=7]{main2.c}
+When executed, the above program prints i is 11.
+\end{frame}
+
+\begin{frame}
+\frametitle{Simple Program Analysis}
+Let's take a minute and analyze the program on the previous slide. 
+\begin{itemize}
+\item Line 1 is a preprocessor directive. In this case, it tells the compiler to add some extra code that is stored in a different file when the program is compiled. 
+\item Line 2 is where the program starts. The word main represents the beginning of a function. 
+\item Line 3 is a definition of a variable named i. 
+\item Line 4 assigns the variable i to the value 11.
+\item Line 5 is responsible for printing i is 11. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Types of Programming Languages}
+Many different languages can be used to program a computer. 
+\begin{itemize}
+\item Machine Language.
+	\begin{itemize}
+	\item A collection of detailed, cryptic instructions that control  the computer’s internal circuitry.
+	\item Strings of numbers giving machine specific instructions
+	\item Example:
+		\begin{itemize}
+			\item +1300042774
+			\item +1400593419
+			\item +1200274027
+		\end{itemize}
+	\end{itemize}
+\item Assembly languages
+	\begin{itemize}
+	\item English-like abbreviations representing elementary computer operations (translated via assemblers)
+	\item Example:
+		\begin{itemize}
+		\item LOAD   BASEPAY
+		\item ADD    OVERPAY
+		\item STORE  GROSSPAY
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Types of Programming Languages Contd}
+\begin{itemize}
+\item High-Level language
+	\begin{itemize}
+	\item A collection of instructions that is more compatible with human languages and human thought processes.
+	\item Languages such as C, Pascal, BASIC, C++, Java and so on
+	\item Example:
+		\begin{itemize}
+		\item grossPay = basePay + overTimePay
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Snap $\rightarrow$ RobotC}
+\includegraphics[scale=0.5]{Robot_wait.png}
+\lstinputlisting[language=C, firstline=32, lastline=37]{nxt_move_forward.c}
+\end{frame}
+
+\begin{frame}
+\frametitle{What does this code do?}
+\lstinputlisting[language=C, firstline=1, lastline=14]{nxt_mod.c}
+\end{frame}
+
+\begin{frame}
+\frametitle{Here is how we do loops}
+\includegraphics[scale=0.5]{Robot_loop_pic.png}
+\lstinputlisting[language=C, firstline=1, lastline=12]{robot_loop.c}
+\end{frame}
+
+\begin{frame}
+\frametitle{Download your first program}
+\begin{itemize}
+\item Google robotC setup download sample program NXT, to see the instructions to download your sample program
+\item RobotC Sample Programs (NXT)
+	\begin{itemize}
+	\item This gives you links to all the sample programs provided with the package.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Moving Forward Code -\textit{ Dissection}}
+\includegraphics[scale=0.4]{Robotics_1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Moving Forward Code -\textit{ Dissection 2}}
+\includegraphics[scale=0.4]{move_forward_2.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Sense Plan Act (SPA)}
+
+Sense, Plan, Act was an early robot control procedure commonly abbreviated \textbf{SPA}. Today we 
+use its fundamental concepts to remind us of the \textbf{three critical capabilities} that every robot 
+must have in order to operate effectively
+
+\begin{description}
+\item[ SENSE:] The robot needs the ability to \textbf{sense important things about its environment}, like 
+the presence of obstacles or navigation aids. What information does your robot need 
+about its surroundings, and how will it gather that information?
+\item[PLAN:] The robot needs to take the sensed data and figure out how to \textbf{respond appropriately}
+to it, based on a \textbf{pre-existing strategy}. Do you have a strategy? Does your program 
+determine the appropriate response, based on that strategy and the sensed data?
+\item[ACT:] Finally, the robot must actually act to \textbf{carry out the actions} that the plan calls for. 
+Have you built your robot so that it can do what it needs to, physically? Does it 
+actually do it when told?
+\end{description}
+\end{frame}
+
+\begin{frame}
+\includegraphics[scale=0.5]{SPA.png}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Boolean Logic }
+\includegraphics[scale=0.4]{Bool1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Boolean Logic }
+\includegraphics[scale=0.4]{Bool2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Boolean Logic }
+\includegraphics[scale=0.4]{Bool3.png}
+\end{frame}
+
+\end{document}
+
+
+
+
